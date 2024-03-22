@@ -17,7 +17,7 @@
 要求按照软件设计工作规范完成课题的分析、设计、实现和测试；系统基本能实现上述各功能，界面美观，运行安全稳定；提交完整的软件原代码，完成设计说明书（毕业论文）的撰写。
 
 
-软件使用mysql数据库，数据库需启用大小写不敏感选项
+软件使用mysql数据库，将TESTDB文件夹内的studentdatabase.sql文件导入即可，数据库需启用大小写不敏感选项
 
 原创维普查重不到11%
 ![课程界面](https://github.com/yaobus/ProjectData/blob/main/EAMS/cacong.png)
