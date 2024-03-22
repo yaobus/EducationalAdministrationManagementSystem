@@ -1,0 +1,361 @@
+﻿<UserControl x:Class="EducationalAdministrationManagementSystem.UserPlan.PayPlan"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EducationalAdministrationManagementSystem.UserPlan"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="14"
+             TextOptions.TextFormattingMode="Ideal" 
+             TextOptions.TextRenderingMode="Auto"    
+             d:DesignHeight="950" d:DesignWidth="1300">
+    <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromBottom, Duration=0:0:0.8}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+
+
+
+
+            <GroupBox
+            Grid.Column="0"
+            MaxWidth="500"
+            Header="学生列表"
+            Style="{DynamicResource MaterialDesignGroupBox}"
+            Margin="0,5,5,5">
+
+
+
+                <StackPanel Grid.Column="0" Grid.Row="1"  Orientation="Vertical" HorizontalAlignment="Stretch">
+
+
+                    <ComboBox
+                    Margin="0,5"
+                    SelectionChanged="DepartmentCombobox_OnSelectionChanged"
+                    x:Name="DepartmentCombobox"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                    materialDesign:HintAssist.Hint="学院"/>
+
+                    <ComboBox
+                    Margin="0,5"
+                    x:Name="SystemCombobox"
+                    SelectionChanged="SystemCombobox_OnSelectionChanged"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                    materialDesign:HintAssist.Hint="系部"/>
+
+                    <ComboBox
+                    Margin="0,5"
+                    x:Name="MajorCombobox"
+                    SelectionChanged="MajorCombobox_OnSelectionChanged"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                    materialDesign:HintAssist.Hint="专业"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60*"></ColumnDefinition>
+                            <ColumnDefinition Width="40*"></ColumnDefinition>
+
+                        </Grid.ColumnDefinitions>
+
+
+
+                        <Grid Grid.Column="0" Grid.Row="0" VerticalAlignment="Center">
+                            <TextBox
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Stretch"
+                                materialDesign:HintAssist.Hint="搜索姓名" />
+
+                        </Grid>
+
+
+                        <Grid Grid.Column="1" Grid.Row="0" VerticalAlignment="Center">
+
+
+                            <Button Margin="5,0,0,0" Height="51" Style="{StaticResource MaterialDesignOutlinedButton}" ToolTip="关键字">
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center"/>
+                                    <TextBlock Text="Search" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                                </StackPanel>
+
+                            </Button>
+
+
+                        </Grid>
+
+
+
+                    </Grid>
+
+
+                    <ListView
+                            Margin="0,5"
+                            x:Name="StudentListView"
+                            BorderThickness="1"
+                        SelectionChanged="StudentListView_OnSelectionChanged"
+                            Style="{DynamicResource MaterialDesignListView}"
+                            HorizontalAlignment="Stretch"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn
+                                DisplayMemberBinding="{Binding Index}"
+                                  
+                                  Header="序号" />
+                                <GridViewColumn
+                                DisplayMemberBinding="{Binding Id}"
+
+                                  Header="学生ID" />
+                                <GridViewColumn
+                                DisplayMemberBinding="{Binding Name}"
+                                  
+                                  Header="姓名" />
+
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+
+                </StackPanel>
+
+
+
+
+            </GroupBox>
+
+
+            <GroupBox
+            Grid.Column="1"
+            Header="学生缴费"
+            Style="{DynamicResource MaterialDesignGroupBox}"
+            Margin="0,5,5,5">
+
+
+                <StackPanel>
+
+                    <materialDesign:Card
+                        Height="210"
+                        Width="150"
+                        HorizontalAlignment="Left"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                        Padding="10"
+                        Margin="5">
+
+                        <Image
+                            x:Name="Image"
+                            Source="/Resources/Contact.png"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+
+                    </materialDesign:Card>
+
+                    <TextBox
+                    Margin="0,5"
+                    IsEnabled="False"
+                    x:Name="StudentName"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    AcceptsReturn="False"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="学生姓名"
+                    />
+
+
+
+
+                    <TextBox
+                    Margin="0,5"
+                    IsEnabled="False"
+                    x:Name="StudentId"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    AcceptsReturn="False"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="学号"
+                />
+
+                    <TextBox
+                        Margin="0,5"
+                        x:Name="CostNumberTextBox"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        VerticalAlignment="Top"
+                        AcceptsReturn="False"
+                        TextWrapping="Wrap"
+                        IsEnabled="False"
+                        VerticalScrollBarVisibility="Auto"
+                        materialDesign:HintAssist.Hint="单项缴费额"
+                    />
+
+                    <TextBox
+                    Margin="0,5"
+                    x:Name="CostTypeTextBox"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    AcceptsReturn="False"
+                    TextWrapping="Wrap"
+                    IsEnabled="False"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="费用类型"
+                />
+
+
+                    <TextBox
+                    Margin="0,5"
+                    x:Name="PayNumberTextBox"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    AcceptsReturn="False"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="金额"
+                />
+
+                    <TextBox
+                    Margin="0,5"
+                    x:Name="PayNoteTextBox"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    AcceptsReturn="False"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="缴费说明"
+                />
+                    <DatePicker
+                        x:Name="DatePicker"
+                        Margin="0,5"
+                        materialDesign:HintAssist.Hint="时间"
+                        Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
+
+                    <TextBox
+                        Margin="0,5"
+                        x:Name="CostTextBox"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        VerticalAlignment="Top"
+                        AcceptsReturn="False"
+                        TextWrapping="Wrap"
+                        IsEnabled="False"
+                        VerticalScrollBarVisibility="Auto"
+                        materialDesign:HintAssist.Hint="应缴费用合计"
+                        />
+
+                    <TextBox
+                        Margin="0,5"
+                        x:Name="PayTextBox"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        VerticalAlignment="Top"
+                        AcceptsReturn="False"
+                        TextWrapping="Wrap"
+                        IsEnabled="False"
+                        VerticalScrollBarVisibility="Auto"
+                        materialDesign:HintAssist.Hint="已缴费用合计"/>
+
+
+
+
+
+
+
+                    <!--
+                    <Button
+                        Margin="0,5"
+                        x:Name="DelButton"
+                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                        ToolTip="删除正在编辑的这条记录">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+                            <materialDesign:PackIcon Kind="Delete" Width="20" Height="20"></materialDesign:PackIcon>
+                            <TextBlock Text="删除成绩" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                        </StackPanel>
+                    </Button>
+-->
+                    <Button
+                        Margin="0,5"
+                        x:Name="SaveButton"
+                        Click="SaveButton_OnClick"
+                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                        ToolTip="保存正在编辑的这条记录" >
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                            <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"></materialDesign:PackIcon>
+                            <TextBlock Text="保存记录" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                        </StackPanel>
+
+
+                    </Button>
+                </StackPanel>
+
+
+            </GroupBox>
+
+            <GroupBox
+                Grid.Column="2"
+                Header="学生费用列表"
+                Style="{DynamicResource MaterialDesignGroupBox}"
+                Margin="0,5,5,5">
+
+
+
+                <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+
+                    <ListView
+                        HorizontalAlignment="Stretch"
+                SelectionChanged="CostShouldListView_OnSelectionChanged"
+                        x:Name="CostShouldListView" Margin="1,0,-1,0" >
+
+                        <ListView.View >
+                            <GridView >
+                                <GridViewColumn
+                                        
+                                    DisplayMemberBinding="{Binding Index}"
+                                    Header="序号" />
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding MajorId}"
+                                    Header="专业ID" />
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding CostName}"
+                                    Header="费用名称" />
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding CostType}"
+                                    Header="费用类型" />
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding CostNumber}"
+                                    Header="费用金额" />
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding CostNote}"
+                                    Header="费用说明" />
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding ShouldDate}"
+                                    Header="填写时间" />
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding CostPay}"
+                                    Header="已缴费金额" />
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding PayNote}"
+                                    Header="缴费备注" />
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding PayDate}"
+                                    Header="缴费时间" />
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+
+                </Grid>
+
+
+
+
+            </GroupBox>
+
+
+        </Grid>
+    </materialDesign:TransitioningContent>
+</UserControl>

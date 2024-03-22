@@ -1,0 +1,489 @@
+﻿<Window x:Class="EducationalAdministrationManagementSystem.StudentEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EducationalAdministrationManagementSystem"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="14"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"    
+        FontFamily="{materialDesign:MaterialDesignFont}"
+        Title="StudentEdit" Height="650" Width="1080">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+
+
+        </Grid.ColumnDefinitions>
+
+        <GroupBox Header="{DynamicResource SE_StudentInfo}" Margin="5">
+
+            <Grid >
+
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="250"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+
+                <StackPanel Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Stretch">
+
+                    <materialDesign:Card
+                        Height="240"
+                        Width="170"
+                        HorizontalAlignment="Left"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                        Padding="10"
+                        Margin="5">
+
+                        <Image
+                            x:Name="Image"
+                            Source="/Resources/Contact.png"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+
+                    </materialDesign:Card>
+
+                </StackPanel>
+
+
+                <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Bottom" HorizontalAlignment="Stretch">
+
+
+                    <Button
+                        x:Name="BrowseImgButton"
+                        Margin="0,5"
+                        Click="BrowseImgButton_OnClick"
+                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                        ToolTip="浏览并选择证件照" >
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                            <materialDesign:PackIcon Kind="FileFind" Width="20" Height="20"></materialDesign:PackIcon>
+                            <TextBlock Text="{DynamicResource SE_FindPhoto}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                        </StackPanel>
+
+
+                    </Button>
+
+
+                    <Button
+                    x:Name="CancelButton"
+                    Margin="0,5"
+                    Click="CancelButton_OnClick"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    ToolTip="放弃正在编辑的这条记录并关闭窗口" >
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                            <materialDesign:PackIcon Kind="CancelBox" Width="20" Height="20"></materialDesign:PackIcon>
+                            <TextBlock Text="{DynamicResource SE_CancelEdit}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                        </StackPanel>
+
+
+                    </Button>
+
+
+
+                    <Button
+                            x:Name="SaveButton"
+                            Margin="0,5"
+                            Click="SaveButton_OnClick"
+                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                            ToolTip="保存正在编辑的这条记录并关闭窗口" >
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                            <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"></materialDesign:PackIcon>
+                            <TextBlock Text="{DynamicResource SE_Save}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                        </StackPanel>
+
+
+                    </Button>
+
+
+                    <!--
+                    <Button
+                        x:Name="SaveButton2"
+                        Margin="0,5"
+                        Click="SaveButton2_OnClick"
+                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                        ToolTip="保存正在编辑的这条记录并关闭窗口" >
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                            <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"></materialDesign:PackIcon>
+                            <TextBlock Text="保存头像" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                        </StackPanel>
+
+
+                    </Button>
+
+-->
+
+                </StackPanel>
+
+
+            </Grid>
+
+        </GroupBox>
+
+
+
+        <GroupBox Grid.Column="1" Header="{DynamicResource SE_TextualInfo}" Margin="0,5,5,5">
+
+            <Grid Grid.Row="0" Grid.Column="2" >
+
+
+
+                <WrapPanel  Orientation="Vertical">
+
+                    <TextBox
+                            x:Name="NameTextBox"
+                    Width="200"
+                    Margin="0,5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+
+                    AcceptsReturn="False"
+                    TextWrapping="NoWrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="{DynamicResource SE_StudentName}"
+                    />
+                    <ComboBox
+                            x:Name="GenderCombobox"
+                            Margin="0,5"
+                          Width="200"
+                          Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                          materialDesign:HintAssist.Hint="{DynamicResource SE_StudentSex}"
+                              
+                      />
+
+
+                    <TextBox
+                     x:Name="NumberTextBox"
+                    Margin="0,5"
+                    Width="200"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    AcceptsReturn="False"
+                    TextWrapping="NoWrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="{DynamicResource SE_Num}"
+                />
+
+
+                    <ComboBox
+                        Margin="0,5"
+                        Width="200"
+                        x:Name="SystemCombobox"
+                        SelectionChanged="SystemCombobox_OnSelectionChanged"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_Sys}"/>
+
+                    <ComboBox
+                            Margin="0,5"
+                            Width="200"
+                            x:Name="CertificateCombobox"
+                            Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_Cert}"/>
+
+
+                    <TextBox
+                    x:Name="CertificateNumberTextBox"
+                    Width="200"
+                    Margin="0,5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+
+                    AcceptsReturn="False"
+                    TextWrapping="NoWrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="{DynamicResource SE_CertNum}"
+                />
+
+                    <TextBox
+                            x:Name="AddressTextBox"
+                        Margin="0,5"
+                        Height="112"
+                        Width="200"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        AcceptsReturn="False"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_Add}"
+                    />
+
+                    <TextBox
+                            x:Name="PhoneNumberTextBox"
+                        Margin="0,5"
+                        Width="200"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        AcceptsReturn="False"
+                        TextWrapping="NoWrap"
+                        VerticalScrollBarVisibility="Auto"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_Phone}"
+                    />
+
+                    <DatePicker
+                            x:Name="DatePicker"
+                        Margin="0,5"
+                        Width="200"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_SignDate}"
+                        Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
+
+                    <TextBox
+                            x:Name="SchoolNameTextBox"
+                            Margin="0,5"
+                            Width="200"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            AcceptsReturn="False"
+                            TextWrapping="NoWrap"
+                            VerticalScrollBarVisibility="Auto"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_SN}"
+                        />
+                    <TextBox
+                            x:Name="CompanyTextBox"
+                            Margin="0,5"
+                            Width="200"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            AcceptsReturn="False"
+                            TextWrapping="NoWrap"
+                            VerticalScrollBarVisibility="Auto"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_Comp}"
+                        />
+
+                    <ComboBox
+                            Margin="0,5"
+                            Width="200"
+                            x:Name="MajorComboBox"
+                            Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_Level}"/>
+
+
+                    <TextBox
+                            x:Name="MajorTypeTextBox"
+                            Margin="0,5"
+                            Width="200"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            AcceptsReturn="False"
+                            TextWrapping="NoWrap"
+                            VerticalScrollBarVisibility="Auto"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_Type}"
+                        />
+                    <ComboBox
+                        Margin="0,5"
+                        Width="200"
+                        x:Name="MajorNameComboBox"
+                        SelectionChanged="MajorNameComboBox_OnSelectionChanged"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_MN}"/>
+
+
+                    <TextBox
+                            x:Name="MajorNumberTextBox"
+                            Margin="0,5"
+                            Width="200"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            AcceptsReturn="False"
+                            TextWrapping="NoWrap"
+                            IsEnabled="False"
+                            VerticalScrollBarVisibility="Auto"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_MNum}"
+                        />
+
+
+
+
+                    <TextBox
+                            x:Name="EmailTextBox"
+                            Margin="0,5"
+                            Width="200"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            AcceptsReturn="False"
+                            TextWrapping="NoWrap"
+                            VerticalScrollBarVisibility="Auto"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_Email}"
+                        />
+
+                    <ComboBox
+                        Margin="0,5"
+                        Width="200"
+                        x:Name="StudentTypeCombobox"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_SLevel}"/>
+
+
+
+                    <ComboBox
+                        Margin="0,5"
+                        Width="200"
+                        x:Name="StudentLevelCombobox"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_SType}"/>
+                       
+
+                    <TextBox
+                            x:Name="StudentEduTextBox"
+                            Margin="0,5"
+                            Width="200"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            AcceptsReturn="False"
+                            TextWrapping="NoWrap"
+                            VerticalScrollBarVisibility="Auto"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_SEdu}"
+                        />
+
+                    <ComboBox
+                            Margin="0,5"
+                            Width="200"
+                            x:Name="PoliticsCombobox"
+                            Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_SPol}"/>
+
+                    <ComboBox
+                            Margin="0,5"
+                            Width="200"
+                            x:Name="NationCombobox"
+                            Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_SNation}"/>
+
+                    <TextBox
+                            x:Name="OccupationTextBox"
+                            Margin="0,5"
+                            Width="200"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            AcceptsReturn="False"
+                            TextWrapping="NoWrap"
+                            VerticalScrollBarVisibility="Auto"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_SJob}"
+                        />
+
+                    <TextBox
+                            x:Name="WorkCompanyTextBox"
+                            Margin="0,5"
+                            Width="200"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            AcceptsReturn="False"
+                            TextWrapping="NoWrap"
+                            VerticalScrollBarVisibility="Auto"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_SComp}"
+                        />
+
+                    <TextBox
+                            x:Name="HealthTextBox"
+                        Margin="0,5"
+                        Width="200"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        AcceptsReturn="False"
+                        TextWrapping="NoWrap"
+                        VerticalScrollBarVisibility="Auto"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_SHeath}"
+                    />
+
+                    <ComboBox
+                            Margin="0,5"
+                            Width="200"
+                            x:Name="CensusCombobox"
+                            Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_SReg}"/>
+
+                    <TextBox
+                        x:Name="PostNumberTextBox"
+                        Margin="0,5"
+                        Width="200"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        AcceptsReturn="False"
+                        TextWrapping="NoWrap"
+                        VerticalScrollBarVisibility="Auto"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_SPost}"
+                    />
+
+                    <TextBox
+                            x:Name="EnglishNameTextBox"
+                        Margin="0,5"
+                        Width="200"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        AcceptsReturn="False"
+                        TextWrapping="NoWrap"
+                        VerticalScrollBarVisibility="Auto"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_SEName}"
+                    />
+
+                    <DatePicker
+                        x:Name="BirthDay"
+                        Margin="0,5"
+                        Width="200"
+                        Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_SBDay}"
+                    />
+
+                    <TextBox
+                            x:Name="CodeTextBox"
+                            Margin="0,5"
+                            Width="200"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            AcceptsReturn="False"
+                            TextWrapping="NoWrap"
+                            VerticalScrollBarVisibility="Auto"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_Code}"
+                        />
+
+                    <TextBox
+                        Margin="0,5"
+                        x:Name="GraduationTextBox"
+                        Width="200"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        AcceptsReturn="False"
+                        TextWrapping="NoWrap"
+                        VerticalScrollBarVisibility="Auto"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_Delay}"
+                    />
+
+
+                    <TextBox
+                            x:Name="SignTextBox"
+                            Margin="0,5"
+                            Width="200"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            AcceptsReturn="False"
+                            TextWrapping="NoWrap"
+                            VerticalScrollBarVisibility="Auto"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_CardSign}"
+                        />
+
+                    <TextBox
+                            x:Name="SignTypeTextBox"
+                            Margin="0,5"
+                            Width="200"
+                            Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                            AcceptsReturn="False"
+                            TextWrapping="NoWrap"
+                            VerticalScrollBarVisibility="Auto"
+                            materialDesign:HintAssist.Hint="{DynamicResource SE_SignType}"
+                        />
+
+                    <ComboBox
+                        x:Name="TeacherCombobox"
+                        Margin="0,5"
+                        Width="200"
+                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                        materialDesign:HintAssist.Hint="{DynamicResource SE_Master}"
+                              
+                    />
+
+
+
+
+
+
+
+
+
+
+                </WrapPanel>
+
+
+
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</Window>

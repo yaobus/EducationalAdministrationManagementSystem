@@ -1,0 +1,208 @@
+﻿<UserControl x:Class="EducationalAdministrationManagementSystem.UserPlan.AllCurriculum"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EducationalAdministrationManagementSystem.UserPlan"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="14"
+             TextOptions.TextFormattingMode="Ideal" 
+             TextOptions.TextRenderingMode="Auto"    
+             d:DesignHeight="650" d:DesignWidth="800">
+    <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromBottom, Duration=0:0:0.8}">
+
+        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+
+
+
+        <GroupBox
+                Grid.Column="0"
+                MaxWidth="300"
+                Header="{DynamicResource AC_CuInfo}"
+                Style="{DynamicResource MaterialDesignGroupBox}"
+                Margin="5,5,0,5">
+
+            <StackPanel Orientation="Vertical">
+
+                <TextBox
+                        x:Name="CurriculumNameTextBox"
+                        Margin="0,5"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        VerticalAlignment="Top"
+                        AcceptsReturn="False"
+                        TextWrapping="Wrap"
+                        VerticalScrollBarVisibility="Auto"
+                        materialDesign:HintAssist.Hint="{DynamicResource AC_CuName}"/>
+
+                <TextBox
+                    x:Name="CurriculumNumTextBox"
+                    Margin="0,5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    AcceptsReturn="False"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="{DynamicResource AC_CuNum}"/>
+
+                <TextBox
+                    x:Name="BookNameTextBox"
+                    Margin="0,5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    AcceptsReturn="False"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="{DynamicResource AC_BookName}"/>
+
+                <TextBox
+                    x:Name="BookAuthorTextBox"
+                    Margin="0,5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    AcceptsReturn="False"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="{DynamicResource AC_BookAuthor}"/>
+
+
+                <TextBox
+                    x:Name="BookPressTextBox"
+                    Margin="0,5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    AcceptsReturn="False"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="{DynamicResource AC_BookPress}"/>
+
+
+
+                <TextBox
+                    x:Name="BookNoteTextBox"
+                    Margin="0,5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    AcceptsReturn="False"
+                    TextWrapping="Wrap"
+                    Height="100"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="{DynamicResource AC_BookNote}"/>
+
+                <Button
+                    x:Name="DelButton"
+                    Margin="0,5"
+                    Click="DelButton_OnClick"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    ToolTip="{DynamicResource AC_Deltip}" >
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                        <materialDesign:PackIcon Kind="Delete" Width="20" Height="20"/>
+                            <TextBlock Text="{DynamicResource AC_Del}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                    </StackPanel>
+
+
+                </Button>
+
+
+                <Button
+                    x:Name="NewButton"
+                    Margin="0,5"
+                    Click="NewButton_OnClick"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    ToolTip="{DynamicResource AC_NewTip}" >
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                        <materialDesign:PackIcon Kind="Edit" Width="20" Height="20"></materialDesign:PackIcon>
+                            <TextBlock Text="{DynamicResource AC_New}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                    </StackPanel>
+
+
+                </Button>
+
+
+
+                <Button
+                    x:Name="SaveButton"
+                    Margin="0,5"
+                    Click="SaveButton_OnClick"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    ToolTip="{DynamicResource AC_SaveTip}" >
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                        <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"></materialDesign:PackIcon>
+                            <TextBlock Text="{DynamicResource AC_Save}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                    </StackPanel>
+
+
+                </Button>
+
+            </StackPanel>
+
+
+
+
+        </GroupBox>
+
+        <GroupBox
+                Grid.Column="1"
+                Header="{DynamicResource AC_ALList}"
+                Style="{DynamicResource MaterialDesignGroupBox}"
+                Margin="5,5,5,5">
+            <ListView
+                SelectionChanged="CurriculumListView_OnSelectionChanged"
+                HorizontalAlignment="Stretch"
+                x:Name="CurriculumListView" >
+
+                <ListView.View >
+                    <GridView >
+                        <GridViewColumn
+                                        
+                            DisplayMemberBinding="{Binding Index}"
+                            Header="{DynamicResource AC_Index}" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding CourseId}"
+                            Header="{DynamicResource AC_CuId}" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding CourseName}"
+                            Header="{DynamicResource AC_CuName}" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding TeachBook}"
+                            Header="{DynamicResource AC_BookName}" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding BookAuthor}"
+                            Header="{DynamicResource AC_BookAuthor}" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding BookPress}"
+                            Header="{DynamicResource AC_BookPress}" />
+
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding Note}"
+                            Header="{DynamicResource AC_BookNote}" />
+                        <GridViewColumn
+                            Width="0"
+                            DisplayMemberBinding="{Binding DelStatus}"
+                            Header="" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+
+        </GroupBox>
+
+
+
+
+
+
+
+
+    </Grid>
+        </materialDesign:TransitioningContent>
+</UserControl>

@@ -1,0 +1,199 @@
+﻿<UserControl x:Class="EducationalAdministrationManagementSystem.UserPlan.CostPlan"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EducationalAdministrationManagementSystem.UserPlan"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="14"
+             TextOptions.TextFormattingMode="Ideal" 
+             TextOptions.TextRenderingMode="Auto"    
+             d:DesignHeight="750" d:DesignWidth="800">
+    <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromBottom, Duration=0:0:0.8}">
+
+<Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+
+
+        <GroupBox
+            Grid.Column="0"
+            MaxWidth="300"
+            Header="{DynamicResource CP_MajName}"
+            Style="{DynamicResource MaterialDesignGroupBox}"
+            Margin="5,5,0,5">
+
+            <StackPanel Orientation="Vertical">
+
+                <ComboBox
+                    Margin="0,5"
+                    x:Name="DepartmentCombobox"
+                    SelectionChanged="DepartmentCombobox_OnSelectionChanged"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_Department}"/>
+
+                <ComboBox
+                    Margin="0,5"
+                    SelectionChanged="SystemCombobox_OnSelectionChanged"
+                    x:Name="SystemCombobox"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_System}"/>
+
+                <ComboBox
+                    Margin="0,5"
+                    x:Name="MajorCombobox"
+                    SelectionChanged="MajorCombobox_OnSelectionChanged"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_Major}"/>
+
+                <TextBox
+                    x:Name="CostNameTextBox"
+                    Margin="0,5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    AcceptsReturn="False"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_CostInfo}"/>
+                <ComboBox
+                    Margin="0,5"
+                    x:Name="CostTypeCombobox"
+                    SelectionChanged="MajorCombobox_OnSelectionChanged"
+                    Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_CostType}"/>
+
+                <TextBox
+                    x:Name="CostTextBox"
+                    Margin="0,5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    AcceptsReturn="False"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_Cost}"/>
+
+                <TextBox
+                    x:Name="CostNoteTextBox"
+                    Margin="0,5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_CostNote}"/>
+                <DatePicker
+                    x:Name="DatePicker"
+                    Margin="0,5"
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_Time}"
+                    Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
+                <TextBox
+                    x:Name="SumTextBox"
+                    Margin="0,5"
+                    Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                    VerticalAlignment="Top"
+                    IsEnabled="False"
+                    TextWrapping="Wrap"
+                    VerticalScrollBarVisibility="Auto"
+                    materialDesign:HintAssist.Hint="{DynamicResource CP_CostSum}"/>
+<!--
+                <Button
+                    x:Name="DelButton"
+                    Margin="0,5"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    ToolTip="从当前专业移除该费用信息" >
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                        <materialDesign:PackIcon Kind="Delete" Width="20" Height="20"/>
+                        <TextBlock Text="移除费用信息" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                    </StackPanel>
+
+
+                </Button>
+-->
+                <Button
+                    x:Name="AddButton"
+                    Margin="0,5"
+                    Click="AddButton_OnClick"
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    ToolTip="{DynamicResource CP_AddTip}" >
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                        <materialDesign:PackIcon Kind="AddBox" Width="20" Height="20"/>
+                            <TextBlock Text="{DynamicResource CP_Add}" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                    </StackPanel>
+
+                </Button>
+
+
+                <!--
+                <Button
+                    x:Name="SaveButton"
+                    Margin="0,5"
+                    
+                    Style="{StaticResource MaterialDesignOutlinedButton}"
+                    ToolTip="保存课程修改" >
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                        <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"></materialDesign:PackIcon>
+                        <TextBlock Text="保存信息修改" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                    </StackPanel>
+
+
+                </Button>
+                -->
+
+
+            </StackPanel>
+
+
+
+
+        </GroupBox>
+
+        <GroupBox
+            Grid.Column="1"
+
+            Header="{DynamicResource CP_MajPay}"
+            Style="{DynamicResource MaterialDesignGroupBox}"
+            Margin="5,5,0,5">
+            <ListView
+                HorizontalAlignment="Stretch"
+                SelectionChanged="CostShouldListView_OnSelectionChanged"
+                x:Name="CostShouldListView" >
+
+                <ListView.View >
+                    <GridView >
+                        <GridViewColumn
+                                        
+                            DisplayMemberBinding="{Binding Index}"
+                            Header="{DynamicResource CP_Index}" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding MajorId}"
+                            Header="{DynamicResource CP_MajId}" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding CostName}"
+                            Header="{DynamicResource CP_CostInfo}" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding CostType}"
+                            Header="{DynamicResource CP_CostType}" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding CostNumber}"
+                            Header="{DynamicResource CP_Cost}" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding CostNote}"
+                            Header="{DynamicResource CP_CostNote}" />
+                        <GridViewColumn
+                            DisplayMemberBinding="{Binding ShouldDate}"
+                            Header="{DynamicResource CP_Time}" />
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </GroupBox>
+
+    </Grid>
+        </materialDesign:TransitioningContent>
+</UserControl>

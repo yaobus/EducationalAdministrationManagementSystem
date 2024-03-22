@@ -1,0 +1,521 @@
+﻿<UserControl x:Class="EducationalAdministrationManagementSystem.UserPlan.DepartmentPlan"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EducationalAdministrationManagementSystem.UserPlan"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+             Background="{DynamicResource MaterialDesignPaper}"
+             TextElement.FontWeight="Regular"
+             TextElement.FontSize="14"
+             TextOptions.TextFormattingMode="Ideal" 
+             TextOptions.TextRenderingMode="Auto"    
+             FontFamily="{materialDesign:MaterialDesignFont}"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="800" >
+
+
+
+    <materialDesign:TransitioningContent OpeningEffect="{materialDesign:TransitionEffect SlideInFromBottom, Duration=0:0:0.8}">
+        <Grid>
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="316"/>
+                <RowDefinition Height="100*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0"  Grid.RowSpan="1">
+
+                <!--学院管理-->
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+
+
+                    <GroupBox
+                            Header="学院管理"
+                            Margin="5">
+
+
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Orientation="Vertical">
+
+                            <TextBox
+                                x:Name="DepartmentNameTextBox"
+                                Margin="0,5"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                VerticalAlignment="Top"
+                                AcceptsReturn="False"
+                                TextWrapping="Wrap"
+                                VerticalScrollBarVisibility="Auto"
+                                materialDesign:HintAssist.Hint="请输入院部名称"/>
+
+                            <TextBox
+                                x:Name="DepartmentNoteTextBox"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                VerticalAlignment="Top"
+                                Height="150"
+                                AcceptsReturn="True"
+                                TextWrapping="Wrap"
+                                VerticalScrollBarVisibility="Auto"
+                                materialDesign:HintAssist.Hint="请输入院部简介"/>
+
+                            <Grid HorizontalAlignment="Stretch" Margin="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200*"/>
+                                    <ColumnDefinition Width="200*"/>
+                                    <ColumnDefinition Width="200*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0">
+
+
+                                    <Button
+                                        x:Name="DpDelButton"
+                                        Margin="0,5"
+                                            HorizontalAlignment="Left"
+                                        Click="DpDelButton_OnClick"
+                                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                                            ToolTip="删除正在编辑的这条记录">
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                                            <materialDesign:PackIcon Kind="Delete" Width="20" Height="20"></materialDesign:PackIcon>
+                                            <TextBlock Text="删除记录" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                                        </StackPanel>
+
+
+                                    </Button>
+
+
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+
+                                    <Button
+                                        x:Name="DpEditButton"
+                                        Margin="0,5"
+                                        HorizontalAlignment="Center"
+                                        Click="DpEditButton_OnClick"
+                                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                                        ToolTip="新建一个院部" >
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                                            <materialDesign:PackIcon Kind="Create" Width="20" Height="20"></materialDesign:PackIcon>
+                                            <TextBlock Text="新建院部" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                                        </StackPanel>
+
+
+                                    </Button>
+
+
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2">
+
+                                    <Button
+                                        x:Name="DpSaveButton"
+                                        Margin="0,5"
+                                            HorizontalAlignment="Right"
+                                        Click="DpSaveButton_OnClick"
+                                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                                            ToolTip="保存正在编辑的这条记录" >
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                                            <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"></materialDesign:PackIcon>
+                                            <TextBlock Text="保存记录" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                                        </StackPanel>
+
+
+                                    </Button>
+
+
+                                </StackPanel>
+
+                            </Grid>
+
+
+                        </StackPanel>
+
+
+
+                    </GroupBox>
+
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="0" Grid.Row="1" >
+
+                <!--学院清单-->
+                <GroupBox
+                    Header="学院列表"
+                    Style="{DynamicResource MaterialDesignGroupBox}"
+                    Margin="5,5,5,5">
+                        <ListView
+                            SelectionChanged="DeListView_OnSelectionChanged"
+                            HorizontalAlignment="Stretch"
+                            x:Name="DeListView" >
+                            <ListView.View >
+                                <GridView >
+                                    <GridViewColumn
+                                        
+                                        DisplayMemberBinding="{Binding Index}"
+                                        Header="序号" />
+                                    <GridViewColumn
+                                        Width="0"
+                                        DisplayMemberBinding="{Binding Id}"
+                                        Header="ID" />
+                                    <GridViewColumn
+                                        DisplayMemberBinding="{Binding Name}"
+                                        Header="院部名称" />
+                                    <GridViewColumn
+                                        Width="500"
+                                        DisplayMemberBinding="{Binding Note}"
+                                        Header="院部简介" />
+
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </GroupBox>
+                </Grid>
+
+
+
+                <Grid Grid.Column="1"  Grid.RowSpan="1">
+
+                <!--系部管理-->
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+
+
+                    <GroupBox
+                            Header="系部管理"
+                            Margin="0,5,5,5">
+
+
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Orientation="Vertical">
+
+                            <TextBox
+                                x:Name="SyNameTextBox"
+                                Margin="0,5"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                VerticalAlignment="Top"
+                                AcceptsReturn="False"
+                                TextWrapping="Wrap"
+                                VerticalScrollBarVisibility="Auto"
+                                materialDesign:HintAssist.Hint="请输入系部名称"/>
+
+                            <TextBox
+                                x:Name="SyNoteTextbox"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                VerticalAlignment="Top"
+                                Height="150"
+                                AcceptsReturn="True"
+                                TextWrapping="Wrap"
+                                VerticalScrollBarVisibility="Auto"
+                                materialDesign:HintAssist.Hint="请输入系部简介"/>
+
+                            <Grid HorizontalAlignment="Stretch" Margin="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200*"/>
+                                    <ColumnDefinition Width="200*"/>
+                                    <ColumnDefinition Width="200*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0">
+
+
+                                    <Button
+                                        x:Name="SyDelButton"
+                                        Margin="0,5"
+                                            HorizontalAlignment="Left"
+                                        Click="SyDelButton_OnClick"
+                                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                                            ToolTip="删除正在编辑的这条记录">
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                                            <materialDesign:PackIcon Kind="Delete" Width="20" Height="20"></materialDesign:PackIcon>
+                                            <TextBlock Text="删除记录" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                                        </StackPanel>
+
+
+                                    </Button>
+
+
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+
+                                    <Button
+                                        x:Name="SyEditButton"
+                                        Margin="0,5"
+                                        HorizontalAlignment="Center"
+                                        Click="SyEditButton_OnClick"
+                                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                                        ToolTip="新建一个系部" >
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                                            <materialDesign:PackIcon Kind="Create" Width="20" Height="20"></materialDesign:PackIcon>
+                                            <TextBlock Text="新建系部" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                                        </StackPanel>
+
+
+                                    </Button>
+
+
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="2">
+
+                                    <Button
+                                        Margin="0,5"
+                                        x:Name="SySaveButton"
+                                            HorizontalAlignment="Right"
+                                        Click="SySaveButton_OnClick"
+                                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                                            ToolTip="保存正在编辑的这条记录" >
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                                            <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"></materialDesign:PackIcon>
+                                            <TextBlock Text="保存记录" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                                        </StackPanel>
+
+
+                                    </Button>
+
+
+                                </StackPanel>
+
+                            </Grid>
+
+
+                        </StackPanel>
+
+
+
+                    </GroupBox>
+
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="1" Grid.Row="1" >
+
+
+                <!--系部清单-->
+
+
+                <GroupBox
+                    Header="系部列表"
+                    Style="{DynamicResource MaterialDesignGroupBox}"
+                    Margin="0,5,5,5">
+                        <ListView
+                            SelectionChanged="SyListView_OnSelectionChanged"
+                            HorizontalAlignment="Stretch"
+                            x:Name="SyListView">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn
+                                            DisplayMemberBinding="{Binding Index}"
+                                        Header="序号" />
+                                        <GridViewColumn
+                                            Width="0"
+                                        DisplayMemberBinding="{Binding Id}"
+                                        Header="ID" />
+                                        <GridViewColumn
+                                        DisplayMemberBinding="{Binding Name}"
+                                        Header="系部名称" />
+                                        <GridViewColumn
+                                            Width="500"
+                                        DisplayMemberBinding="{Binding Note}"
+                                        Header="系部简介" />
+
+                                    </GridView>
+                            </ListView.View>
+                        </ListView>
+                </GroupBox>
+
+
+
+
+
+            </Grid>
+
+
+
+            <Grid Grid.Column="2"  Grid.RowSpan="1">
+
+                <!--专业管理-->
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
+
+
+                    <GroupBox
+                            Header="专业管理"
+                            Margin="0,5,5,5">
+
+
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top" Orientation="Vertical">
+
+                            <TextBox
+                                x:Name="MaNameTextBox"
+                                Margin="0,5"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                VerticalAlignment="Top"
+                                AcceptsReturn="False"
+                                TextWrapping="Wrap"
+                                VerticalScrollBarVisibility="Auto"
+                                materialDesign:HintAssist.Hint="请输入专业名称"/>
+
+                            <TextBox
+                                x:Name="MaNumTextBox"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                VerticalAlignment="Top"
+                                AcceptsReturn="False"
+                                TextWrapping="Wrap"
+                                VerticalScrollBarVisibility="Auto"
+                                materialDesign:HintAssist.Hint="请输入专业编码"/>
+
+
+                            <TextBox
+                                x:Name="MaNoteTextBox"
+                                Margin="0,5"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                Height="89"
+                                VerticalAlignment="Top"
+                                AcceptsReturn="True"
+                                TextWrapping="Wrap"
+                                VerticalScrollBarVisibility="Auto"
+                                materialDesign:HintAssist.Hint="请输入专业简介"/>
+
+                            <Grid HorizontalAlignment="Stretch" Margin="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="200*"/>
+                                    <ColumnDefinition Width="200*"/>
+                                    <ColumnDefinition Width="200*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel Grid.Column="0">
+
+
+                                    <Button
+                                        x:Name="MaDelButton"
+                                        Margin="0,5"
+                                            HorizontalAlignment="Left"
+                                        Click="MaDelButton_OnClick"
+                                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                                            ToolTip="删除正在编辑的这条记录">
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                                            <materialDesign:PackIcon Kind="Delete" Width="20" Height="20"></materialDesign:PackIcon>
+                                            <TextBlock Text="删除记录" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                                        </StackPanel>
+
+
+                                    </Button>
+
+
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+
+                                    <Button
+                                        x:Name="MaEditButton"
+                                        Margin="0,5"
+                                        HorizontalAlignment="Center"
+                                        Click="MaEditButton_OnClick"
+                                        Style="{StaticResource MaterialDesignOutlinedButton}"
+                                        ToolTip="新建一个专业" >
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                                            <materialDesign:PackIcon Kind="Create" Width="20" Height="20"></materialDesign:PackIcon>
+                                            <TextBlock Text="新建专业" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                                        </StackPanel>
+
+
+                                    </Button>
+
+
+                                </StackPanel>
+
+
+                                <StackPanel Grid.Column="2">
+
+                                    <Button
+                                        x:Name="MaSaveButton"
+                                        Margin="0,5"
+                                            HorizontalAlignment="Right"
+                                        Click="MaSaveButton_OnClick"
+                                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                                            ToolTip="保存正在编辑的这条记录" >
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                                            <materialDesign:PackIcon Kind="ContentSave" Width="20" Height="20"></materialDesign:PackIcon>
+                                            <TextBlock Text="保存记录" VerticalAlignment="Center" Style="{DynamicResource MaterialDesignBody1TextBlock}"/>
+                                        </StackPanel>
+
+
+                                    </Button>
+
+
+                                </StackPanel>
+
+                            </Grid>
+
+
+                        </StackPanel>
+
+
+
+                    </GroupBox>
+
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="2" Grid.Row="1" >
+
+
+                <!--专业清单-->
+
+                <GroupBox
+                    Header="专业列表"
+                    Style="{DynamicResource MaterialDesignGroupBox}"
+                    Margin="0,5,5,5">
+                    <ListView
+                        SelectionChanged="MaListView_OnSelectionChanged"
+                        HorizontalAlignment="Stretch"
+                        x:Name="MaListView">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding Index}"
+                                    Header="序号" />
+                                <GridViewColumn
+                                    Width="0"
+                                    DisplayMemberBinding="{Binding Id}"
+                                    Header="ID" />
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding Name}"
+                                    Header="专业名称" />
+                                <GridViewColumn
+                                    DisplayMemberBinding="{Binding Num}"
+                                    Header="专业编码" />
+                                    <GridViewColumn
+                                        Width="500"
+                                    DisplayMemberBinding="{Binding Note}"
+                                    Header="专业简介" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </GroupBox>
+
+
+
+
+            </Grid>
+
+
+
+        </Grid>
+
+
+
+
+    </Grid>
+        </materialDesign:TransitioningContent>
+</UserControl>

@@ -1,0 +1,135 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+
+
+    <s:String x:Key="LoginUM">Please enter username</s:String>
+    <s:String x:Key="LoginPW">Please enter your password</s:String>
+    <s:String x:Key="LoginRole">Select login identity</s:String>
+    <s:String x:Key="LoginLogin">Login</s:String>
+    <s:String x:Key="LoginTitle">EAMS system login</s:String>
+
+
+
+    <s:String x:Key="DbHost">Database Host:</s:String>
+    <s:String x:Key="DbPort">Database Port:</s:String>
+    <s:String x:Key="DbUser">Database user:</s:String>
+    <s:String x:Key="DbPassword">Database password:</s:String>
+    <s:String x:Key="DbName">Database name:</s:String>
+
+
+    <s:String x:Key="MainWelcome">Welcome</s:String>
+    <s:String x:Key="MainTitle">ESMS Academic Affairs Management System</s:String>
+    <s:String x:Key="MainOverview">Global Overview</s:String>
+    <s:String x:Key="MainDepartment">Departments</s:String>
+    <s:String x:Key="MainCoursePool">All Courses</s:String>
+    <s:String x:Key="MainCurriculum">Curriculum Planning</s:String>
+    <s:String x:Key="MainTeacher">Teacher Management</s:String>
+    <s:String x:Key="MainStudent">Student Registration</s:String>
+    <s:String x:Key="MainAchievement">Grade Management</s:String>
+    <s:String x:Key="MainTextual">Exam Registration</s:String>
+    <s:String x:Key="MainPrize">Reward </s:String>
+    <s:String x:Key="MainCost">Cost plan</s:String>
+    <s:String x:Key="MainPay">Expense Settlement</s:String>
+    <s:String x:Key="MainSetting">System Settings</s:String>
+    <s:String x:Key="MainUser">User Management</s:String>
+    <s:String x:Key="MainAbout">About the program</s:String>
+    <s:String x:Key="MainExit">Exit the program</s:String>
+
+
+    <s:String x:Key="SE_StudentInfo">Examination information</s:String>
+    <s:String x:Key="SE_TextualInfo">Exam Registration Information</s:String>
+    <s:String x:Key="SE_FindPhoto">Browse photos</s:String>
+    <s:String x:Key="SE_CancelEdit">Abort editing</s:String>
+    <s:String x:Key="SE_Save">Save record</s:String>
+    <s:String x:Key="SE_StudentName">Examinee name</s:String>
+    <s:String x:Key="SE_StudentSex">Sex of the candidate</s:String>
+    <s:String x:Key="SE_Num">Example number</s:String>
+    <s:String x:Key="SE_Sys">Department</s:String>
+    <s:String x:Key="SE_Cert">Document type</s:String>
+    <s:String x:Key="SE_CertNum">Cert number</s:String>
+    <s:String x:Key="SE_Add">Examinee address</s:String>
+    <s:String x:Key="SE_Phone">Candidate's phone number</s:String>
+    <s:String x:Key="SE_SignDate">Registration time</s:String>
+    <s:String x:Key="SE_SN">School name</s:String>
+    <s:String x:Key="SE_Comp">Support unit</s:String>
+    <s:String x:Key="SE_Level">Professional level</s:String>
+    <s:String x:Key="SE_Type">Professional Type</s:String>
+    <s:String x:Key="SE_MN">Professional Name</s:String>
+    <s:String x:Key="SE_MNum">Professional number</s:String>
+    <s:String x:Key="SE_Email">E-mail</s:String>
+    <s:String x:Key="SE_SLevel">Category of candidates</s:String>
+    <s:String x:Key="SE_SType">Candidate Type</s:String>
+    <s:String x:Key="SE_SEdu">Candidate Education</s:String>
+    <s:String x:Key="SE_SPol">Political appearance</s:String>
+    <s:String x:Key="SE_SNation">Ethnicity of the candidate</s:String>
+    <s:String x:Key="SE_SJob">Candidate Occupation</s:String>
+    <s:String x:Key="SE_SComp">Workplace</s:String>
+    <s:String x:Key="SE_SHeath">Physical condition</s:String>
+    <s:String x:Key="SE_SReg">Domicile type</s:String>
+    <s:String x:Key="SE_SPost">Postal code of the candidate</s:String>
+    <s:String x:Key="SE_SEName">English name</s:String>
+    <s:String x:Key="SE_SBDay">Date of birth</s:String>
+    <s:String x:Key="SE_Code">Collective code</s:String>
+    <s:String x:Key="SE_Delay">Delayed graduation</s:String>
+    <s:String x:Key="SE_CardSign">Card issuance sign</s:String>
+    <s:String x:Key="SE_SignType">Enrollment form</s:String>
+    <s:String x:Key="SE_Master">Class Teacher</s:String>
+
+
+    <s:String x:Key="AP_StuList">Student List</s:String>
+    <s:String x:Key="AP_StuAcEd">Student Grade Editing</s:String>
+    <s:String x:Key="AP_StuAcList">Student Grade List</s:String>
+    <s:String x:Key="AP_Department">College</s:String>
+    <s:String x:Key="AP_System">Department</s:String>
+    <s:String x:Key="AP_Major">Major</s:String>
+    <s:String x:Key="AP_SearchName">Search Name</s:String>
+    <s:String x:Key="AP_Search">Search</s:String>
+    <s:String x:Key="AP_StuIndex">Index</s:String>
+    <s:String x:Key="AP_StuId">ID</s:String>
+    <s:String x:Key="AP_StuName">Name</s:String>
+    <s:String x:Key="AP_CouId">Course ID</s:String>
+    <s:String x:Key="AP_CouName">Course Name</s:String>
+    <s:String x:Key="AP_CouScore">Course Credit</s:String>
+    <s:String x:Key="AP_Daily">Course Credit</s:String>
+    <s:String x:Key="AP_Last">Exam grades</s:String>
+    <s:String x:Key="AP_GetScore">Get credits</s:String>
+    <s:String x:Key="AP_Save">Save record</s:String>
+    <s:String x:Key="AP_SaveTip">Save this record being edited</s:String>
+
+    <s:String x:Key="AC_CuInfo">Course Information</s:String>
+    <s:String x:Key="AC_ALList">List of all courses</s:String>
+    <s:String x:Key="AC_CuName">Course name</s:String>
+    <s:String x:Key="AC_CuNum">Course Number</s:String>
+    <s:String x:Key="AC_BookName">Textbook name</s:String>
+    <s:String x:Key="AC_BookAuthor">Editor</s:String>
+    <s:String x:Key="AC_BookPress">publisher</s:String>
+    <s:String x:Key="AC_BookNote">Remarks</s:String>
+    <s:String x:Key="AC_Del">Delete Course</s:String>
+    <s:String x:Key="AC_New">New Course</s:String>
+    <s:String x:Key="AC_Save">Save course</s:String>
+    <s:String x:Key="AC_Deltip">Delete current course</s:String>
+    <s:String x:Key="AC_NewTip">Create a new course</s:String>
+    <s:String x:Key="AC_SaveTip">Save the currently edited course</s:String>
+    <s:String x:Key="AC_Index">Serial number</s:String>
+    <s:String x:Key="AC_CuId">Course ID</s:String>
+
+
+    <s:String x:Key="CP_MajName">Professional Information</s:String>
+    <s:String x:Key="CP_MajPay">Fees to be paid for this major</s:String>
+    <s:String x:Key="CP_Department">College</s:String>
+    <s:String x:Key="CP_System">Department</s:String>
+    <s:String x:Key="CP_Major">Major</s:String>
+    <s:String x:Key="CP_CostInfo">Cost information</s:String>
+    <s:String x:Key="CP_CostType">Cost type</s:String>
+    <s:String x:Key="CP_Cost">Amount</s:String>
+    <s:String x:Key="CP_CostNote">Cost description</s:String>
+    <s:String x:Key="CP_Time">Time of filling</s:String>
+    <s:String x:Key="CP_CostSum">Cost total</s:String>
+    <s:String x:Key="CP_Add">Add cost information</s:String>
+    <s:String x:Key="CP_AddTip">Add fee information to current major</s:String>
+    <s:String x:Key="CP_Index">Serial number</s:String>
+    <s:String x:Key="CP_MajId">Professional ID</s:String>
+
+
+</ResourceDictionary>
